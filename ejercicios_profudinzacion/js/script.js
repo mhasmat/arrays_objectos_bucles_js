@@ -42,3 +42,34 @@ en "section".
 */
 
 /* Comienza a escribir su código aquí */
+let accumulator = "";
+
+for(const pokemon of data) {
+  accumulator += `
+  <article class="card">
+    <img
+      src=${pokemon.thumbnail}
+      class="icon-type"
+      alt="icon type"
+    />
+    <p>
+      ${pokemon.name}
+    </p>
+  </article>  
+  `
+};
+
+const section = document.querySelector('section');
+section.innerHTML = accumulator;
+
+const cards = document.getElementsByClassName("card");
+for(const poke of cards) { 
+
+  poke.addEventListener("mouseover", function() {
+    poke.classList.add("planta");    
+  });
+
+  poke.addEventListener("mouseout", function() {
+    poke.classList.remove("planta");
+  });
+}
